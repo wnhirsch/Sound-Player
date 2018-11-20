@@ -84,7 +84,7 @@ public class MyParserListener implements ParserListener {
 
 	@Override
 	public void onNoteParsed(Note arg0) {
-		int pos = _control.updatePosition();
+		//int pos = _control.updatePosition();
 	}
 
 	@Override

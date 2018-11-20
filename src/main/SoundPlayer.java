@@ -14,7 +14,7 @@ public class SoundPlayer {
 		
 		ctrl.execute();
 
-		System.out.println(ctrl.getMusicString());
+		//System.out.println(ctrl.getMusicString());
 		
 		return;
 		
