@@ -1,0 +1,10 @@
+/AddNoteCommand.class
+/ChangeBPMCommand.class
+/ChangeInstrumentCommand.class
+/ChangeOctaveCommand.class
+/ChangeVolumeCommand.class
+/CommandInterface.class
+/DoNothingCommand.class
+/OctaveDef.class
+/RepeatNoteCommand.class
+/VolumeDef.class
