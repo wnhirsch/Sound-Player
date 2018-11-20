@@ -137,8 +137,11 @@ final class TemporalEventManager
     	if(lastBeat != beats) {
     		lastBeat = beats;
     		lastTempo = lastTempo + (long)60000.0/tempoBeatsPerMinute;;
+        	//System.out.println(lastTempo);
+        	// New problem: change in tempo is wrong
+        	// T120 A B T130 C D
+        	// C will execute as T120! This breaks the synch
     	}
-    	//System.out.println(lastTempo);
     	return lastTempo;
     }
 }

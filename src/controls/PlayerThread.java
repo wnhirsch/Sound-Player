@@ -29,6 +29,7 @@ public class PlayerThread implements Runnable {
 	public void setMusicString(String str) {
 		musicString= str;	
 		try {
+			System.out.println(musicString);
 			parser.parse(musicString);
 		} catch (ParserException e) {
 			System.out.println("Exception captured by this almost awesome team");
