@@ -1,5 +1,6 @@
 package controls;
 
+import org.jfugue.parser.ParserException;
 import org.jfugue.player.Player;
 //import org.jfugue.temporal.TemporalPLP;
 import org.staccato.StaccatoParser;
@@ -27,7 +28,14 @@ public class PlayerThread implements Runnable {
 	
 	public void setMusicString(String str) {
 		musicString= str;	
-		parser.parse(musicString);
+		try {
+			parser.parse(musicString);
+		} catch (ParserException e) {
+			System.out.println("Exception captured by this almost awesome team");
+			System.out.println("Presenting the music string: ");
+			System.out.println(musicString);
+			e.printStackTrace();
+		}
 		
 	}
 	@Override

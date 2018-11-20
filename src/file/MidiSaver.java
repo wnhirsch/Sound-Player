@@ -19,9 +19,10 @@ public class MidiSaver {
 		try {
 			MidiFileManager.savePatternToMidi(pattern, file);
 		} catch(ParserException e) {
-			System.out.println("Exception Captured by this almost awesome team");
+			System.out.println("Exception captured by this almost awesome team");
 			System.out.println("Presenting the music string:");
 			System.out.println(control.getMusicString());
+			e.printStackTrace();
 		}
 	}
 	

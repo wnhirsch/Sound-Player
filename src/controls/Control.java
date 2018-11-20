@@ -23,6 +23,7 @@ public class Control implements ControlInterface{
 	private int instrument;
 	private int octaveDefault;
 	private int volumeDefault;
+	private int bpmDefault;
 
 	private String musicString;
 	
@@ -68,6 +69,12 @@ public class Control implements ControlInterface{
 		musicString = musicString + cmdString;
 	}
 
+	@Override
+	public int getDefaultBpm() {
+		return bpmDefault;
+	}
+
+	
 	public int getVolume() {
 		return volume;
 	}
@@ -115,7 +122,8 @@ public class Control implements ControlInterface{
 		_buffer_input = buffer;
 		_notePositions = notePos;
 
-		bpm = 120;
+		bpmDefault = 120;
+		bpm = bpmDefault;
 		octaveDefault = 5;
 		octave = octaveDefault;
 		instrument = 0;
@@ -161,6 +169,7 @@ public class Control implements ControlInterface{
 	public int getCurrentPos(int index) {
 		return _notePositions.get(index);
 	}
+
 
 	
 

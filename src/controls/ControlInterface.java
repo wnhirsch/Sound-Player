@@ -12,6 +12,7 @@ public interface ControlInterface {
 
 	public void setBpm(int newBPM);
 	public int getBpm();
+	public int getDefaultBpm();
 
 	public void setOctave(int newOctave);
 	public int getOctave();
