@@ -66,26 +66,26 @@ public class ParserV2 extends Parser{
 		defaultDictionary.put('Z', new RepeatNoteCommand());
 
 
-		defaultDictionary.put('0', new ChangeOctaveCommand(OctaveDef.PLUS)); // TODO: change instrument: Valor atual + valor digito
-		defaultDictionary.put('2', new ChangeOctaveCommand(OctaveDef.PLUS)); // TODO: change instrument: Valor atual + valor digito
-		defaultDictionary.put('4', new ChangeOctaveCommand(OctaveDef.PLUS)); // TODO: change instrument: Valor atual + valor digito
-		defaultDictionary.put('6', new ChangeOctaveCommand(OctaveDef.PLUS)); // TODO: change instrument: Valor atual + valor digito
-		defaultDictionary.put('8', new ChangeOctaveCommand(OctaveDef.PLUS)); // TODO: change instrument: Valor atual + valor digito
+		defaultDictionary.put('0', new ChangeInstrumentCommand(0)); 
+		defaultDictionary.put('2', new ChangeInstrumentCommand(2)); 
+		defaultDictionary.put('4', new ChangeInstrumentCommand(4)); 
+		defaultDictionary.put('6', new ChangeInstrumentCommand(6)); 
+		defaultDictionary.put('8', new ChangeInstrumentCommand(8)); 
 
-		defaultDictionary.put('1', new ChangeOctaveCommand(OctaveDef.MINUS)); // TODO: change instrument: Valor atual + valor digito
-		defaultDictionary.put('3', new ChangeOctaveCommand(OctaveDef.MINUS)); // TODO: change instrument: Valor atual + valor digito
-		defaultDictionary.put('5', new ChangeOctaveCommand(OctaveDef.MINUS)); // TODO: change instrument: Valor atual + valor digito
-		defaultDictionary.put('7', new ChangeOctaveCommand(OctaveDef.MINUS)); // TODO: change instrument: Valor atual + valor digito
-		defaultDictionary.put('9', new ChangeOctaveCommand(OctaveDef.MINUS)); // TODO: change instrument: Valor atual + valor digito
+		defaultDictionary.put('1', new ChangeInstrumentCommand(1)); 
+		defaultDictionary.put('3', new ChangeInstrumentCommand(3)); 
+		defaultDictionary.put('5', new ChangeInstrumentCommand(5)); 
+		defaultDictionary.put('7', new ChangeInstrumentCommand(7)); 
+		defaultDictionary.put('9', new ChangeInstrumentCommand(9)); 
+		
+		defaultDictionary.put('?', new ChangeInstrumentCommand());
+		defaultDictionary.put('.', new ChangeInstrumentCommand());
 
-		defaultDictionary.put('?', new ChangeOctaveCommand(OctaveDef.PLUS));
-		defaultDictionary.put('.', new ChangeOctaveCommand(OctaveDef.SAME));
+		defaultDictionary.put('\n', new ChangeInstrumentCommand(ChangeInstrumentCommand.InstrumentType.TUBULAR_BELLS)); 
+		defaultDictionary.put('!', new ChangeInstrumentCommand(ChangeInstrumentCommand.InstrumentType.HARPISCHORD)); 
 
-		defaultDictionary.put('\n', new ChangeInstrumentCommand()); // TODO: MIDI #15 Tubular Bells
-		defaultDictionary.put('!', new ChangeInstrumentCommand()); // TODO: MIDI #7 Harpischord
-
-		defaultDictionary.put(';', new ChangeBPMCommand(50)); // TODO: MIDI #76 PanFlute
-		defaultDictionary.put(',', new ChangeBPMCommand(-50)); // TODO: MIDI #20 Church Organ
+		defaultDictionary.put(';', new ChangeInstrumentCommand(ChangeInstrumentCommand.InstrumentType.PAN_FLUTE)); 
+		defaultDictionary.put(',', new ChangeInstrumentCommand(ChangeInstrumentCommand.InstrumentType.CHURCH_ORGAN)); 
 		return defaultDictionary;
 	}
 	
