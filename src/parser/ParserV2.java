@@ -17,6 +17,8 @@ import commands.RepeatNoteCommand;
 import commands.VolumeDef;
 
 public class ParserV2 extends Parser{
+	protected int _currentInstrument;
+	
 	@Override
 	protected Map<Character, CommandInterface> _getDefaultDictionary(){
 		
