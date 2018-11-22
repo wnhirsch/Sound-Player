@@ -1,20 +1,18 @@
 package commands;
 
 import controls.ControlInterface;
+import controls.ControlInterface.InstrumentType;
 
 public class ChangeInstrumentCommand implements CommandInterface {
 	
 	private boolean _isSet = false;
 	private int _instrument = 1;
-	
-	public enum InstrumentType{
-		PAN_FLUTE, CHURCH_ORGAN, HARPISCHORD, TUBULAR_BELLS;
-	}
+	private InstrumentType _typedInstrument;
 	
 	@Override
 	public void execute(ControlInterface control){
 		if(_isSet) {
-			control.setInstrument(_instrument);
+			control.setInstrument(_typedInstrument);
 		} else {
 			control.setInstrument(control.getInstrument() + _instrument);
 		}
@@ -24,24 +22,8 @@ public class ChangeInstrumentCommand implements CommandInterface {
 	public ChangeInstrumentCommand() {}
 	
 	public ChangeInstrumentCommand(InstrumentType instrument) {
-		switch(instrument) {
-		case PAN_FLUTE:
-			_instrument = 76;
-			_isSet = true;
-			break;
-		case CHURCH_ORGAN:
-			_instrument = 20;
-			_isSet = true;
-			break;
-		case HARPISCHORD:
-			_instrument = 7;
-			_isSet = true;
-			break;
-		case TUBULAR_BELLS:
-			_instrument = 15;
-			_isSet = true;
-			break;
-		}
+		_typedInstrument = instrument;
+		_isSet = true;
 	}
 	
 	public ChangeInstrumentCommand(int toBeSummed) {

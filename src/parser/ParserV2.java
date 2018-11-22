@@ -15,13 +15,14 @@ import commands.DoNothingCommand;
 import commands.OctaveDef;
 import commands.RepeatNoteCommand;
 import commands.VolumeDef;
+import controls.ControlInterface.InstrumentType;
 
 public class ParserV2 extends Parser{
 	protected int _currentInstrument;
 	
 	@Override
 	protected Map<Character, CommandInterface> _getDefaultDictionary(){
-		
+
 		Map<Character, CommandInterface> defaultDictionary = new HashMap<Character, CommandInterface>();
 
 		defaultDictionary.put('A', new AddNoteCommand('A'));
@@ -81,11 +82,11 @@ public class ParserV2 extends Parser{
 		defaultDictionary.put('?', new ChangeInstrumentCommand());
 		defaultDictionary.put('.', new ChangeInstrumentCommand());
 
-		defaultDictionary.put('\n', new ChangeInstrumentCommand(ChangeInstrumentCommand.InstrumentType.TUBULAR_BELLS)); 
-		defaultDictionary.put('!', new ChangeInstrumentCommand(ChangeInstrumentCommand.InstrumentType.HARPISCHORD)); 
+		defaultDictionary.put('\n', new ChangeInstrumentCommand(InstrumentType.TUBULAR_BELLS)); 
+		defaultDictionary.put('!', new ChangeInstrumentCommand(InstrumentType.HARPISCHORD)); 
 
-		defaultDictionary.put(';', new ChangeInstrumentCommand(ChangeInstrumentCommand.InstrumentType.PAN_FLUTE)); 
-		defaultDictionary.put(',', new ChangeInstrumentCommand(ChangeInstrumentCommand.InstrumentType.CHURCH_ORGAN)); 
+		defaultDictionary.put(';', new ChangeInstrumentCommand(InstrumentType.PAN_FLUTE)); 
+		defaultDictionary.put(',', new ChangeInstrumentCommand(InstrumentType.CHURCH_ORGAN)); 
 		return defaultDictionary;
 	}
 	

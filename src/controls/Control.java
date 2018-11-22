@@ -107,6 +107,30 @@ public class Control implements ControlInterface{
 		this.instrument = instrument;
 	}
 	
+	@Override
+	public void setInstrument(InstrumentType instrument) {
+		int newInstrument = 0;
+		
+		switch(instrument) {
+		case PAN_FLUTE:
+			newInstrument = 76;
+			break;
+		case CHURCH_ORGAN:
+			newInstrument = 20;
+			break;
+		case HARPISCHORD:
+			newInstrument = 7;
+			break;
+		case TUBULAR_BELLS:
+			newInstrument = 15;
+			break;
+		}
+		
+		this.instrument = newInstrument;
+		
+	}
+	
+	@Override
 	public void addNote(Character note){
 		String cmdString= 	"I" + Integer.toString(getInstrument()) + " "+
 						Character.toString(note)+ 
@@ -169,8 +193,6 @@ public class Control implements ControlInterface{
 	public int getCurrentPos(int index) {
 		return _notePositions.get(index);
 	}
-
-
 	
 
 }

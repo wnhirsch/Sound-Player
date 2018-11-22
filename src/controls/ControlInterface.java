@@ -5,6 +5,11 @@ import java.io.IOException;
 import commands.CommandInterface;
 
 public interface ControlInterface {
+	
+	public enum InstrumentType{
+		PAN_FLUTE, CHURCH_ORGAN, HARPISCHORD, TUBULAR_BELLS;
+	}
+	
 	public void addNote(Character theChar);
 
 	public void setVolume(int newVol);
@@ -18,6 +23,7 @@ public interface ControlInterface {
 	public int getOctave();
 
 	public void setInstrument(int newInstrument);
+	public void setInstrument(InstrumentType instrument);
 	public int getInstrument();
 
 	public void setLastCmd(CommandInterface cmd);
