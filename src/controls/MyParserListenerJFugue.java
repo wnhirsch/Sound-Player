@@ -4,11 +4,11 @@ import org.jfugue.parser.ParserListener;
 import org.jfugue.theory.Chord;
 import org.jfugue.theory.Note;
 
-public class MyParserListener implements ParserListener {
+public class MyParserListenerJFugue implements ParserListener {
 
-	OuterControl _control;
+	ControlManager _control;
 	
-	public MyParserListener (OuterControl control){
+	public MyParserListenerJFugue (ControlManager control){
 		_control = control;
 	}
 	

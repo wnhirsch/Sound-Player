@@ -7,20 +7,20 @@ import org.staccato.StaccatoParser;
 
 import modifiedJFugueTemporalLib.TemporalPLP;
 
-public class PlayerThread implements Runnable {
+public class PlayerThreadJFugue implements Runnable {
 	private static final long TEMPORAL_DELAY = 0;
 	
 	Player player;
 	String musicString;
 	StaccatoParser parser;
 	TemporalPLP temporalListener;
-	MyParserListener positionListener;
+	MyParserListenerJFugue positionListener;
 
-	public PlayerThread(Player p, OuterControl c) {
+	public PlayerThreadJFugue(Player p, ControlManager c) {
 		player= p;
 		parser = new StaccatoParser();
 		temporalListener = new TemporalPLP();
-		positionListener = new MyParserListener(c);
+		positionListener = new MyParserListenerJFugue(c);
 		
 		parser.addParserListener(temporalListener);
 		temporalListener.addParserListener(positionListener);

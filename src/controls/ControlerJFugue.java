@@ -7,12 +7,12 @@ import org.jfugue.player.ManagedPlayer;
 import org.jfugue.player.Player;
 
 import commands.CommandInterface;
-import file.MidiSaver;
+import file.MidiSaverJFugue;
 
-public class Control implements ControlInterface{
+public class ControlerJFugue extends Controler{
 	public static final int defaultOctave = 5;
 	
-	private OuterControl _father;
+	private ControlManager _father;
 	
 	public List<CommandInterface> _commandList;
 	
@@ -33,7 +33,7 @@ public class Control implements ControlInterface{
 	private Player _player;
 	// Volume, Instrument, Tempo
 	private String _str_configString = "X[Volume]=%d I%d T%d ";
-	private PlayerThread playerThread;
+	private PlayerThreadJFugue playerThread;
 	private ManagedPlayer managedPlayer;
 	
 	boolean fetched;
@@ -140,7 +140,7 @@ public class Control implements ControlInterface{
 	}
 
 
-	public Control(OuterControl father, List<CommandInterface> buffer, List<Integer> notePos){
+	public ControlerJFugue(ControlManager father, List<CommandInterface> buffer, List<Integer> notePos){
 		_father = father;
 		_player = new Player();
 		_buffer_input = buffer;
@@ -155,7 +155,7 @@ public class Control implements ControlInterface{
 		
 		fetched = _fetchMusicString();
 		
-		playerThread= new PlayerThread(_player, _father);
+		playerThread= new PlayerThreadJFugue(_player, _father);
 		managedPlayer = _player.getManagedPlayer();
 	}
 	
@@ -173,11 +173,11 @@ public class Control implements ControlInterface{
 	}
 	
 	public void saveMidiFile() throws IOException {
-		MidiSaver.saveMidiFile(this);
+		MidiSaverJFugue.saveMidiFile(this);
 	}
 	
 	public void saveMidiFile(String archivePathAndName) throws IOException {
-		MidiSaver.saveMidiFile(this, archivePathAndName);
+		MidiSaverJFugue.saveMidiFile(this, archivePathAndName);
 	}
 	
 	public void execute() {

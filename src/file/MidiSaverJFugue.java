@@ -11,7 +11,7 @@ import org.jfugue.pattern.Pattern;
 
 import controls.ControlInterface;
 
-public class MidiSaver {
+public class MidiSaverJFugue {
 	public static void saveMidiFile(ControlInterface control, String archivePathAndName) throws IOException {
 		File file = new File(archivePathAndName);
 		Pattern pattern = new Pattern(control.getMusicString());

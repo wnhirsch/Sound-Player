@@ -12,20 +12,20 @@ import parser.ParserV1;
 import parser.ParserV2;
 
 
-public class OuterControl {
+public class ControlManager {
 	public enum ParserType{
 		V1, V2;
 	}
 	
 	Parser _parser;
-	Control _playerControl;
+	ControlerJFugue _playerControl;
 	Player _player;
 	VisControl _visControl;
 	
 	private int _int_currentPosition;
 	private int _posIndex;
 	private List<CommandInterface> _cmdList;
-	public OuterControl(String theString, ParserType type){
+	public ControlManager(String theString, ParserType type){
 		_player = new Player();
 		switch(type) {
 		case V1:
@@ -39,7 +39,7 @@ public class OuterControl {
 		_cmdList= _parser.getCommandList();
 		List<Integer> notePos = _parser.getNotePositions();
 		
-		_playerControl = new Control(this, _cmdList, notePos);
+		_playerControl = new ControlerJFugue(this, _cmdList, notePos);
 		_visControl = new VisControl(theString);
 		
 	}
