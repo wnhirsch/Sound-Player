@@ -2,7 +2,7 @@
 :root {
     --black: rgb(60, 60, 60);
     --blackOP: rgba(60, 60, 60, 0.5);
-    --white:
+    --white: rgb(220, 220, 220);
 }
 
 body {
@@ -16,7 +16,6 @@ body {
 
 #form {
 	background-color: var(--blackOP);
-	height: 80vh;
 	padding: 20px;
 }
 
@@ -31,43 +30,17 @@ body {
 
 #form button {
     font-family: verdana, sans-serif;
-    font-size: 3.5vh;
-
-    width: 32.83%;
-    height: 10vh;
-
-    border-radius: 4px;
-    border: 1px solid rgb(220, 220, 220);
-    color: rgb(220, 220, 220);
-    background-color: rgb(60,60,60);
-    cursor: pointer;
-
-    transition: ease-in 0.25s;
-}
-
-#form .btn2 {
-    width: 49.6%;
-}
-
-#form button:hover {
-    border-color: rgb(60,60,60);
-    color: rgb(60,60,60);
-    background-color: rgb(220, 220, 220);
-}
-
-#form p{
-    font-size: 5vh;
-    color: black;
-    text-align: center;
-    letter-spacing: 2px;
+    font-size: 3vh;
 
     width: 100%;
-    background-color: rgba(255,255,255,0.75);
-    border: 1px solid var(--black);
+    height: 10vh;
+
+    border: 1px solid var(--white);
     border-radius: 4px;
-}
 
-#form p #actualNote{
-    color: red;
-}
+    color: var(--white);
+    background-color: var(--black);
+    cursor: pointer;
 
+    transition
+}

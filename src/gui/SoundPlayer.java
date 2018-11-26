@@ -9,20 +9,9 @@ public class SoundPlayer {
 
 	public void playSong(String strMusic){
 		ctrl = new ControlManager(strMusic, ControlManager.ParserType.V2);
+		ctrl.saveMidiFile();
 		ctrl.execute();
 	}
-
-	public int getPosition(){
-		return ctrl.updatePosition();
-	}
-
-	public int getBpm(){
-        return ctrl.getBpm();
-    }
-
-    public void saveFile(String filename){
-        ctrl.saveMidiFile(filename);
-    }
 
 }
 

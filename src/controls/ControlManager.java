@@ -50,17 +50,14 @@ public class ControlManager {
 	
 	public int updatePosition() {
 		_int_currentPosition = _playerControl.getCurrentPos(_posIndex);
-
+	
+		
 		String str = _visControl.updateVis(_int_currentPosition);
 		System.out.println(str);
 		
 		_posIndex++;
-
+		
 		return _int_currentPosition;
-	}
-
-	public int getBpm() {
-		return _playerControl.getBpm();
 	}
 	
 	public void finished() {
@@ -68,7 +65,7 @@ public class ControlManager {
 		System.out.println(str);
 		
 	}
-
+	
 	public String getMusicString() {
 		return _playerControl.getMusicString();
 	}
