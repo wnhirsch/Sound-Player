@@ -32,7 +32,7 @@ public class webViewGUI extends Application {
         webEngine.getLoadWorker().stateProperty().addListener((obs, oldValue, newValue) -> {
             if (newValue == Worker.State.SUCCEEDED) {
                 JSObject window = (JSObject) webEngine.executeScript("window");
-                window.setMember("app", new SoundPlayer());
+                window.setMember("app", new SoundPlayer(stage));
             }
         });
 
@@ -51,7 +51,6 @@ public class webViewGUI extends Application {
         stage.show();
 
         // Informa o diretório do código HTML e tenta abri-lo
-
         try {
             File file = new File(htmlURL);
             URL url = file.toURI().toURL();
@@ -62,7 +61,6 @@ public class webViewGUI extends Application {
         catch(MalformedURLException e) {
             e.printStackTrace();
         }
-
     }
 
     public static void main(String[] args) {
@@ -70,64 +68,4 @@ public class webViewGUI extends Application {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//    public static void main(String[] args) throws IOException{
-//        String dir = System.getProperty("user.dir");
-//        String URL = "file:///" + dir + "\\web\\index.html";
-//
-//
-//        JEditorPane jep = new JEditorPane();
-//        jep.setEditable(false);
-//        jep.setContentType("text/html");
-//
-//        try{
-//            System.out.println(URL);
-//            jep.setPage(URL);
-//        }
-//        catch (Exception e){
-//            e.printStackTrace();
-//        }
-//
-//        JScrollPane jsp = new JScrollPane(jep);
-//        JFrame frame = new JFrame();
-//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        frame.getContentPane().add(jsp);
-//        frame.setBounds(50, 50, 300, 400);
-//        frame.setVisible(true);
-//
-//    }
-
-//    public static void main(String[] args) throws ScriptException, NoSuchMethodException, FileNotFoundException{
-//        String dir = System.getProperty("user.dir");
-//
-//        ScriptEngineManager scriptEngineManager = new ScriptEngineManager();
-//        ScriptEngine nashorn = scriptEngineManager.getEngineByName("nashorn");
-//
-//        // Read script
-//        Invocable funcJS = (Invocable) nashorn;
-//        nashorn.eval(new FileReader("script.js"));
-//
-//        Object result = 0;
-//        while (true){
-//            result = funcJS.invokeFunction("inc", result);
-//            System.out.println(result);
-//        }
-//
-//    }
-
 
