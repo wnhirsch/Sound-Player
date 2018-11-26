@@ -2,7 +2,6 @@ package controls;
 
 import org.jfugue.parser.ParserException;
 import org.jfugue.player.Player;
-//import org.jfugue.temporal.TemporalPLP;
 import org.staccato.StaccatoParser;
 
 import modifiedJFugueTemporalLib.TemporalPLP;

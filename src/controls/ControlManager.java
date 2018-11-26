@@ -24,7 +24,9 @@ public class ControlManager {
 	
 	private int _int_currentPosition;
 	private int _posIndex;
+	private int numNotes;
 	private List<CommandInterface> _cmdList;
+
 	public ControlManager(String theString, ParserType type){
 		_player = new Player();
 		switch(type) {
@@ -38,6 +40,7 @@ public class ControlManager {
 		
 		_cmdList= _parser.getCommandList();
 		List<Integer> notePos = _parser.getNotePositions();
+		numNotes = notePos.size();
 		
 		_playerControl = new ControlerJFugue(this, _cmdList, notePos);
 		_visControl = new VisControl(theString);
@@ -50,14 +53,21 @@ public class ControlManager {
 	
 	public int updatePosition() {
 		_int_currentPosition = _playerControl.getCurrentPos(_posIndex);
-	
-		
+
 		String str = _visControl.updateVis(_int_currentPosition);
 		System.out.println(str);
 		
 		_posIndex++;
-		
+
 		return _int_currentPosition;
+	}
+
+	public int getBpm() {
+		return _playerControl.getBpm();
+	}
+
+	public int getNumNotes(){
+		return numNotes;
 	}
 	
 	public void finished() {
@@ -65,7 +75,7 @@ public class ControlManager {
 		System.out.println(str);
 		
 	}
-	
+
 	public String getMusicString() {
 		return _playerControl.getMusicString();
 	}
