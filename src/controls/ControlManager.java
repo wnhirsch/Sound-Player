@@ -51,6 +51,10 @@ public class ControlManager {
 		_playerControl.execute();
 	}
 	
+	public void stop() {
+		_playerControl.stop();
+	}
+	
 	public int updatePosition() {
 		_int_currentPosition = _playerControl.getCurrentPos(_posIndex);
 

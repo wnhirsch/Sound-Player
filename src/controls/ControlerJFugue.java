@@ -24,7 +24,6 @@ public class ControlerJFugue extends Controler{
 	private int octaveDefault;
 	private int volumeDefault;
 	private int bpmDefault;
-	private Thread _thread;
 
 	private String musicString;
 	
@@ -35,6 +34,7 @@ public class ControlerJFugue extends Controler{
 	// Volume, Instrument, Tempo
 	private String _str_configString = "X[Volume]=%d I%d T%d ";
 	private PlayerThreadJFugue playerThread;
+	private Thread _thread;
 	private ManagedPlayer managedPlayer;
 	
 	boolean fetched;
@@ -185,6 +185,10 @@ public class ControlerJFugue extends Controler{
 		playerThread.setMusicString(musicString);
 		_thread = new Thread(playerThread);
 		_thread.start();
+	}
+	
+	public void stop() {
+		_thread.stop(); // deprecated. may cause problems
 	}
 	
 	public boolean isPlaying() {

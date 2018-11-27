@@ -104,6 +104,7 @@ public static final int defaultOctave = 5;
 	public abstract void saveMidiFile(String archivePathAndName) throws IOException;
 	
 	public abstract void execute();
+	public abstract void stop();
 	
 	public abstract boolean isPlaying();
 	

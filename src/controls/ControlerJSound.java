@@ -65,4 +65,10 @@ public class ControlerJSound extends Controler {
 		
 	}
 
+	@Override
+	public void stop() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
