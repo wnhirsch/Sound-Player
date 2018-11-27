@@ -5,37 +5,34 @@ var state = 0;
 
 function changeState(btn){
     if(state == 0 && btn == 2){
-        var firstBtnObj = document.getElementById("firstBtn");
-        firstBtnObj.disabled = false;
-        firstBtnObj.innerHTML = "Pause";
-        var sndBtnObj = document.getElementById("sndBtn");
-        sndBtnObj.disabled = true;
-        sndBtnObj.innerHTML = "Resume";
+        var stopBtnObj = document.getElementById("stopBtn");
+        stopBtnObj.disabled = false;
+        var playBtnObj = document.getElementById("playBtn");
+        playBtn.innerHTML = "Pause <span style='letter-spacing: -5px;'>&#10074;&#10074;</span>";
+        var saveBtnObj = document.getElementById("saveBtn");
+        saveBtnObj.disabled = false;
         state = 1;
         play();
     }
-    else if(state == 1 && btn == 1){
-        var firstBtnObj = document.getElementById("firstBtn");
-        firstBtnObj.innerHTML = "Stop";
-        var sndBtnObj = document.getElementById("sndBtn");
-        sndBtnObj.disabled = false;
+    else if(state == 1 && btn == 2){
+        var playBtnObj = document.getElementById("playBtn");
+        playBtnObj.innerHTML = "Play &#9658;";
         state = 2;
     }
-    else if((state == 2 && btn == 1) || (state == 1 && btn == 0)){
-        var firstBtnObj = document.getElementById("firstBtn");
-        firstBtnObj.disabled = true;
-        firstBtnObj.innerHTML = "Stop";
-        var sndBtnObj = document.getElementById("sndBtn");
-        sndBtnObj.disabled = false;
-        sndBtnObj.innerHTML = "Play";
+    else if((state != 0 && btn == 1) || (state == 1 && btn == 0)){
+        var stopBtnObj = document.getElementById("stopBtn");
+        stopBtnObj.disabled = true;
+        var playBtnObj = document.getElementById("playBtn");
+        playBtnObj.disabled = false;
+        playBtnObj.innerHTML = "Play &#9658;";
+        var saveBtnObj = document.getElementById("saveBtn");
+        saveBtnObj.disabled = true;
         state = 0;
         stop();
     }
     else if(state == 2 && btn == 2){
-        var firstBtnObj = document.getElementById("firstBtn");
-        firstBtnObj.innerHTML = "Pause";
-        var sndBtnObj = document.getElementById("sndBtn");
-        sndBtnObj.disabled = true;
+        var playBtnObj = document.getElementById("playBtn");
+        playBtnObj.innerHTML = "Pause <span style='letter-spacing: -5px;'>&#10074;&#10074;</span>";
         state = 1;
         changePosition();
         app.resumeSong();
@@ -49,9 +46,9 @@ function stop(){
     var actualNoteObj = document.getElementById("actualNote");
     var nextNotesObj = document.getElementById("nextNotes");
 
-    prevNotes.innerHTML = ".";
-    actualNoteObj.innerHTML = ".";
-    nextNotesObj.innerHTML = ".";
+    prevNotes.innerHTML = "&#9834;";
+    actualNoteObj.innerHTML = "&#9834;";
+    nextNotesObj.innerHTML = "&#9834;";
 }
 
 function play(){
@@ -80,7 +77,7 @@ function changePosition(){
             if(end >= str.length) { end = str.length; }
 
             prevNotes.innerHTML = str.slice(start, position);
-            actualNoteObj.innerHTML = str.substr(position, 1);
+            actualNoteObj.innerHTML = "|" + str.substr(position, 1) + "|";
             nextNotesObj.innerHTML = str.slice(position + 1, end);
 
             numNotes = numNotes - 1;

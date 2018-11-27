@@ -10,16 +10,16 @@
     <textarea id="inputStr" placeholder="Put any text here."></textarea>
     <br>
     <p>
-        <span id="prevNotes">.</span>
-        <span id="actualNote">.</span>
-        <span id="nextNotes">.</span>
+        <span id="prevNotes">&#9834;</span>
+        <span id="actualNote">&#9834;</span>
+        <span id="nextNotes">&#9834;</span>
     </p>
     <br>
-    <button id="firstBtn" onclick="changeState(1)" disabled>Stop</button>
-    <button id="sndBtn" onclick="changeState(2)">Play</button>
+    <button id="stopBtn" onclick="changeState(1)" disabled>Stop &#9724;</button>
+    <button id="playBtn" onclick="changeState(2)">Play &#9658;</button>
     <br>
-    <button onclick="read()">Read File [.txt]</button>
-    <button onclick="save()">Save File [.mid]</button>
+    <button onclick="read()">Read File [.txt] &#128270;</button>
+    <button id="saveBtn" onclick="save()" disabled>Save File [.mid] &#9835;</button>
 </section>
 </body>
 </html>
