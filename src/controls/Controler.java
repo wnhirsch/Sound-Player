@@ -112,4 +112,6 @@ public static final int defaultOctave = 5;
 		return _notePositions.get(index);
 	}
 	
+	public abstract void pause();
+	public abstract void resume();
 }

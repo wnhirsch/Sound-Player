@@ -35,6 +35,14 @@ public class SoundPlayer {
 	public int getBpm(){
         return ctrl.getBpm();
     }
+	
+	public void resumeSong() {
+		ctrl.resume();
+	}
+	
+	public void pauseSong() {
+		ctrl.pause();
+	}
 
 	public String readFile(){
 		StringBuilder strMusic = new StringBuilder();

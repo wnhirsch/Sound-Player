@@ -187,8 +187,17 @@ public class ControlerJFugue extends Controler{
 		_thread.start();
 	}
 	
+	public void pause() {
+		managedPlayer.pause();
+	}
+	
+	public void resume() {
+		managedPlayer.resume();
+	}
+	
 	public void stop() {
-		_thread.stop(); // deprecated. may cause problems
+		managedPlayer.finish();
+		//managedPlayer.reset();
 	}
 	
 	public boolean isPlaying() {

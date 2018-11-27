@@ -101,4 +101,14 @@ public class ControlManager {
 			e.printStackTrace();
 		}
 	}
+	
+	public void pause() {
+		_playerControl.pause();
+	}
+	
+	public void resume() {
+		_playerControl.resume();
+	}
+	
+	
 }
