@@ -54,7 +54,6 @@ public class webViewGUI extends Application {
         try {
             File file = new File(htmlURL);
             URL url = file.toURI().toURL();
-            System.out.println("Local URL: " + url.toString());
             webEngine.load(url.toString());
         }
         // Caso não consiga, informa erro e encerra o programa
