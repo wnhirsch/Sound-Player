@@ -15,7 +15,7 @@ public class scriptGUI {
 
         // Read script
         Invocable funcJS = (Invocable) nashorn;
-        nashorn.eval(new FileReader("web/script.js"));
+        nashorn.eval(new FileReader("web\\script.js"));
 
 //        Object result = 0;
 //        while (true){
