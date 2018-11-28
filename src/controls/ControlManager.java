@@ -20,7 +20,6 @@ public class ControlManager {
 	Parser _parser;
 	ControlerJFugue _playerControl;
 	Player _player;
-	VisControl _visControl;
 	
 	private int _int_currentPosition;
 	private int _posIndex;
@@ -43,8 +42,7 @@ public class ControlManager {
 		numNotes = notePos.size();
 		
 		_playerControl = new ControlerJFugue(this, _cmdList, notePos);
-		_visControl = new VisControl(theString);
-		
+	
 	}
 	
 	public void execute() {
@@ -57,9 +55,6 @@ public class ControlManager {
 	
 	public int updatePosition() {
 		_int_currentPosition = _playerControl.getCurrentPos(_posIndex);
-
-		String str = _visControl.updateVis(_int_currentPosition);
-		System.out.println(str);
 		
 		_posIndex++;
 
@@ -74,12 +69,6 @@ public class ControlManager {
 		return numNotes;
 	}
 	
-	public void finished() {
-		String str = _visControl.finish();
-		System.out.println(str);
-		
-	}
-
 	public String getMusicString() {
 		return _playerControl.getMusicString();
 	}
@@ -88,8 +77,7 @@ public class ControlManager {
 		try {
 			_playerControl.saveMidiFile();
 		} catch (IOException | ParserException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+						e.printStackTrace();
 		}
 	}
 	
@@ -97,7 +85,6 @@ public class ControlManager {
 		try {
 			_playerControl.saveMidiFile(archivePathAndName);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

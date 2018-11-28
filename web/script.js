@@ -3,6 +3,27 @@ var str = "";
 var numNotes = 0;
 var state = 0;
 
+
+if(inputStr.addEventListener ) {
+        inputStr.addEventListener('keydown',this.keyHandler,false);
+        document.getElementById("inputStr").value = "test";
+    } else if(inputStr.attachEvent ) {
+        inputStr.attachEvent('onkeydown',this.keyHandler); /* damn IE hack */
+    }
+    
+    document.getElementById("inputStr").value = "test";
+    
+function keyHandler(e) {
+    var TABKEY = 9;
+    if(e.keyCode == TABKEY) {
+        this.value += "    ";
+        if(e.preventDefault) {
+            e.preventDefault();
+        }
+        return false;
+    }
+}
+
 function changeState(btn){
     if(state == 0 && btn == 2){
         var inputStrObj = document.getElementById("inputStr");
