@@ -5,12 +5,16 @@ var state = 0;
 
 function changeState(btn){
     if(state == 0 && btn == 2){
-        var stopBtnObj = document.getElementById("stopBtn");
-        stopBtnObj.disabled = false;
-        var playBtnObj = document.getElementById("playBtn");
-        playBtn.innerHTML = "Pause <span style='letter-spacing: -5px;'>&#10074;&#10074;</span>";
-        state = 1;
-        play();
+        var inputStrObj = document.getElementById("inputStr");
+   		str = inputStrObj.value.toString();
+   		if(str){
+		    var stopBtnObj = document.getElementById("stopBtn");
+		    stopBtnObj.disabled = false;
+		    var playBtnObj = document.getElementById("playBtn");
+		    playBtn.innerHTML = "Pause <span style='letter-spacing: -5px;'>&#10074;&#10074;</span>";
+		    state = 1;
+		    play();
+		}
     }
     else if(state == 1 && btn == 2){
         var playBtnObj = document.getElementById("playBtn");
@@ -53,7 +57,7 @@ function play(){
     app.playSong(inputStrObj.value);
     numNotes = parseInt(app.getNumNotes());
 
-    changePosition();
+  	changePosition();
 }
 
 function changePosition(){

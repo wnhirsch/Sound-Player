@@ -18,8 +18,10 @@ public class SoundPlayer {
     }
 
 	public void playSong(String strMusic){
-        _ctrl = new ControlManager(strMusic, ControlManager.ParserType.V2);
-        _ctrl.execute();
+		if(strMusic != "") {
+			_ctrl = new ControlManager(strMusic, ControlManager.ParserType.V2);
+			_ctrl.execute();
+        }
 	}
 
 	public int getPosition(){
