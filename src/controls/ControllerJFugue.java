@@ -9,7 +9,7 @@ import org.jfugue.player.Player;
 import commands.CommandInterface;
 import file.MidiSaverJFugue;
 
-public class ControlerJFugue extends Controler{
+public class ControllerJFugue extends Controller{
 	public static final int defaultOctave = 5;
 	
 	private ControlManager _father;
@@ -141,7 +141,7 @@ public class ControlerJFugue extends Controler{
 	}
 
 
-	public ControlerJFugue(ControlManager father, List<CommandInterface> buffer, List<Integer> notePos){
+	public ControllerJFugue(ControlManager father, List<CommandInterface> buffer, List<Integer> notePos){
 		_father = father;
 		_player = new Player();
 		_buffer_input = buffer;

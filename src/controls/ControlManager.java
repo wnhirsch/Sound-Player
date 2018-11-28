@@ -18,7 +18,7 @@ public class ControlManager {
 	}
 	
 	Parser _parser;
-	ControlerJFugue _playerControl;
+	ControllerJFugue _playerControl;
 	Player _player;
 	
 	private int _int_currentPosition;
@@ -41,7 +41,7 @@ public class ControlManager {
 		List<Integer> notePos = _parser.getNotePositions();
 		numNotes = notePos.size();
 		
-		_playerControl = new ControlerJFugue(this, _cmdList, notePos);
+		_playerControl = new ControllerJFugue(this, _cmdList, notePos);
 	
 	}
 	

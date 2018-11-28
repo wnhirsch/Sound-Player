@@ -5,9 +5,9 @@ import java.util.List;
 
 import commands.CommandInterface;
 
-public class ControlerJSound extends Controler {
+public class ControllerJSound extends Controller {
 
-	public ControlerJSound(ControlManager father, List<CommandInterface> buffer, List<Integer> notePos) {
+	public ControllerJSound(ControlManager father, List<CommandInterface> buffer, List<Integer> notePos) {
 		
 	}
 	

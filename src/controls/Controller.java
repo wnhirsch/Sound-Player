@@ -10,7 +10,7 @@ import commands.CommandInterface;
 import controls.ControlInterface.InstrumentType;
 import file.MidiSaverJFugue;
 
-public abstract class Controler implements ControlInterface {
+public abstract class Controller implements ControlInterface {
 public static final int defaultOctave = 5;
 	
 	protected ControlManager _father;
