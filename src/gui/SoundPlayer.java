@@ -87,10 +87,10 @@ public class SoundPlayer {
             	
                 if(_ctrl == null) {
                     _ctrl = new ControlManager(strMusic, ControlManager.ParserType.V2);
-                    _ctrl.saveMidiFile(audioDir.getPath() + "\\" + filename);
+                    _ctrl.saveMidiFile(audioDir.getPath() + File.separatorChar + filename);
                     _ctrl = null;         
                 } else {
-                    _ctrl.saveMidiFile(audioDir.getPath() + "\\" + filename);
+                    _ctrl.saveMidiFile(audioDir.getPath() + File.separatorChar + filename);
                 }
              }
         }

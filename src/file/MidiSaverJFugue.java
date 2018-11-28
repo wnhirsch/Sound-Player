@@ -28,7 +28,7 @@ public class MidiSaverJFugue {
 	
 	public static void saveMidiFile(ControlInterface control) throws IOException {
 		Path currentRelativePath = Paths.get("");
-		String path = currentRelativePath.toAbsolutePath().toString() + "/defaultName.mid";
+		String path = currentRelativePath.toAbsolutePath().toString() + File.separatorChar + "defaultName.mid";
 		saveMidiFile(control, path);
 	}
 	

@@ -26,8 +26,8 @@ public class webViewGUI extends Application {
 
         // Define diretório dos arquivos necessarios
         String dirURL = System.getProperty("user.dir");
-        String iconURL = dirURL + "\\web\\icon.png";
-        String htmlURL = dirURL + "\\web\\index.html";
+        String iconURL = dirURL + File.separatorChar + "web" + File.separatorChar + "icon.png";
+        String htmlURL = dirURL + File.separatorChar + "web" + File.separatorChar + "index.html";
 
         // Informa/Inicializa no HTML as classes Java que ele pode chamar
         webEngine.getLoadWorker().stateProperty().addListener((obs, oldValue, newValue) -> {
