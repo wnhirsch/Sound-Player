@@ -9,8 +9,6 @@ function changeState(btn){
         stopBtnObj.disabled = false;
         var playBtnObj = document.getElementById("playBtn");
         playBtn.innerHTML = "Pause <span style='letter-spacing: -5px;'>&#10074;&#10074;</span>";
-        var saveBtnObj = document.getElementById("saveBtn");
-        saveBtnObj.disabled = false;
         state = 1;
         play();
     }
@@ -25,8 +23,6 @@ function changeState(btn){
         var playBtnObj = document.getElementById("playBtn");
         playBtnObj.disabled = false;
         playBtnObj.innerHTML = "Play &#9658;";
-        var saveBtnObj = document.getElementById("saveBtn");
-        saveBtnObj.disabled = true;
         state = 0;
         stop();
     }
@@ -100,5 +96,6 @@ function read(){
 }
 
 function save(){
-    app.saveFile();
+    var inputStrObj = document.getElementById("inputStr");
+    app.saveFile(inputStrObj.value, state != 0);
 }
