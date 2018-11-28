@@ -6,9 +6,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import javax.swing.*;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 public class SoundPlayer {
 
@@ -63,6 +61,7 @@ public class SoundPlayer {
                 strMusic.append((char) c);
                 c = fr.read();
             }
+            fr.close();
         }
         catch (IOException e){
             System.out.println("ERROR: " + e);
@@ -71,18 +70,36 @@ public class SoundPlayer {
 		return strMusic.toString();
 	}
 
-    public void saveFile(){
+    public void saveFile(String strMusic, boolean canCreateMidi){
         DirectoryChooser dirChooser = new DirectoryChooser();
         dirChooser.setTitle("Select a directory");
         File audioDir = dirChooser.showDialog(_stage);
 
         if (audioDir != null) {
-            String filename = JOptionPane.showInputDialog("Type the audio filename (.mid):");
+            String filename = JOptionPane.showInputDialog("Type the audio or text filename [.mid / .txt]:");
             if (filename != null) {
-                if (filename.lastIndexOf(".mid") != filename.length() - 4 && filename.lastIndexOf(".MID") != filename.length() - 4) {
-                    filename += ".mid";
+                int midPos = Math.max(filename.lastIndexOf(".mid"), filename.lastIndexOf(".MID"));
+                int txtPos = Math.max(filename.lastIndexOf(".txt"), filename.lastIndexOf(".TXT"));
+
+                if(canCreateMidi && txtPos != filename.length() - 4){
+                    if(midPos != filename.length() - 4){
+                        filename += ".mid";
+                    }
+                    _ctrl.saveMidiFile(audioDir.getPath() + "\\" + filename);
                 }
-                _ctrl.saveMidiFile(audioDir.getPath() + "\\" + filename);
+                else{
+                    if(txtPos != filename.length() - 4){
+                        filename += ".txt";
+                    }
+                    try {
+                        BufferedWriter writer = new BufferedWriter(new FileWriter(audioDir.getPath() + "\\" + filename));
+                        writer.write(strMusic);
+                        writer.close();
+                    }
+                    catch (IOException e){
+                        e.printStackTrace();
+                    }
+                }
             }
         }
     }
