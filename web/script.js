@@ -97,5 +97,5 @@ function read(){
 
 function save(){
     var inputStrObj = document.getElementById("inputStr");
-    app.saveFile(inputStrObj.value, state != 0);
+    app.saveFile(inputStrObj.value);
 }

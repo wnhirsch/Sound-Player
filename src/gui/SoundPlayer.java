@@ -10,7 +10,7 @@ import java.io.*;
 
 public class SoundPlayer {
 
-	private ControlManager _ctrl;
+	private ControlManager _ctrl = null;
 	private final Stage _stage;
 
     public SoundPlayer(Stage stage) {
@@ -70,40 +70,29 @@ public class SoundPlayer {
 		return strMusic.toString();
 	}
 
-    public void saveFile(String strMusic, boolean canCreateMidi){
+    public void saveFile(String strMusic){
         DirectoryChooser dirChooser = new DirectoryChooser();
         dirChooser.setTitle("Select a directory");
         File audioDir = dirChooser.showDialog(_stage);
 
         if (audioDir != null) {
-            String filename = JOptionPane.showInputDialog("Type the audio or text filename [.mid / .txt]:");
+            String filename = JOptionPane.showInputDialog("Type the audio or text filename:");
             if (filename != null) {
                 int midPos = Math.max(filename.lastIndexOf(".mid"), filename.lastIndexOf(".MID"));
-                int txtPos = Math.max(filename.lastIndexOf(".txt"), filename.lastIndexOf(".TXT"));
-
-                if(canCreateMidi && txtPos != filename.length() - 4){
-                    if(midPos != filename.length() - 4){
-                        filename += ".mid";
-                    }
+            	
+                if(midPos == -1)
+            		filename += ".mid";
+            	
+                if(_ctrl == null) {
+                    _ctrl = new ControlManager(strMusic, ControlManager.ParserType.V2);
+                    _ctrl.saveMidiFile(audioDir.getPath() + "\\" + filename);
+                    _ctrl = null;         
+                } else {
                     _ctrl.saveMidiFile(audioDir.getPath() + "\\" + filename);
                 }
-                else{
-                    if(txtPos != filename.length() - 4){
-                        filename += ".txt";
-                    }
-                    try {
-                        BufferedWriter writer = new BufferedWriter(new FileWriter(audioDir.getPath() + "\\" + filename));
-                        writer.write(strMusic);
-                        writer.close();
-                    }
-                    catch (IOException e){
-                        e.printStackTrace();
-                    }
-                }
-            }
+             }
         }
     }
-
 
 }
 
