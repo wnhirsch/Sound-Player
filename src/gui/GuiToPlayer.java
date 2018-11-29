@@ -8,12 +8,12 @@ import javafx.stage.Stage;
 import javax.swing.*;
 import java.io.*;
 
-public class SoundPlayer {
+public class GuiToPlayer {
 
 	private ControlManager _ctrl = null;
 	private final Stage _stage;
 
-    public SoundPlayer(Stage stage) {
+    public GuiToPlayer(Stage stage) {
         this._stage = stage;
     }
 

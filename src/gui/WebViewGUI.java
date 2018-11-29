@@ -15,7 +15,7 @@ import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import netscape.javascript.JSObject;
 
-public class webViewGUI extends Application {
+public class WebViewGUI extends Application {
 
     @Override
     public void start(final Stage stage){
@@ -32,7 +32,7 @@ public class webViewGUI extends Application {
         webEngine.getLoadWorker().stateProperty().addListener((obs, oldValue, newValue) -> {
             if (newValue == Worker.State.SUCCEEDED) {
                 JSObject window = (JSObject) webEngine.executeScript("window");
-                window.setMember("app", new SoundPlayer(stage));
+                window.setMember("app", new GuiToPlayer(stage));
             }
         });
 

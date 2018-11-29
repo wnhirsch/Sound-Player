@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
-public class scriptGUI {
+public class ScriptGUI {
 
     public static void lala() throws ScriptException, NoSuchMethodException, FileNotFoundException {
         ScriptEngineManager scriptEngineManager = new ScriptEngineManager();
@@ -18,14 +18,6 @@ public class scriptGUI {
         // Read script
         Invocable funcJS = (Invocable) nashorn;
         nashorn.eval(new FileReader("web" + File.separatorChar + "script.js"));
-
-//        Object result = 0;
-//        while (true){
-//            result = funcJS.invokeFunction("inc", result);
-//            System.out.println(result);
-//        }
-
-
     }
 
 }
