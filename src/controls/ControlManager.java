@@ -3,8 +3,8 @@ package controls;
 import java.io.IOException;
 import java.util.List;
 
-import org.jfugue.parser.ParserException;
-import org.jfugue.player.Player;
+//import org.jfugue.parser.ParserException;
+//import org.jfugue.player.Player;
 
 import commands.CommandInterface;
 import parser.Parser;
@@ -18,8 +18,7 @@ public class ControlManager {
 	}
 	
 	Parser _parser;
-	ControllerJFugue _playerControl;
-	Player _player;
+	ControlInterface _playerControl;
 	
 	private int _int_currentPosition;
 	private int _posIndex;
@@ -27,7 +26,6 @@ public class ControlManager {
 	private List<CommandInterface> _cmdList;
 
 	public ControlManager(String theString, ParserType type){
-		_player = new Player();
 		switch(type) {
 		case V1:
 			_parser = new ParserV1(theString);
@@ -41,7 +39,7 @@ public class ControlManager {
 		List<Integer> notePos = _parser.getNotePositions();
 		numNotes = notePos.size();
 		
-		_playerControl = new ControllerJFugue(this, _cmdList, notePos);
+		_playerControl = new JFugue4Controller(this, _cmdList, notePos);
 	
 	}
 	
@@ -73,10 +71,10 @@ public class ControlManager {
 		return _playerControl.getMusicString();
 	}
 
-	public void saveMidiFile() throws ParserException {
+	public void saveMidiFile() throws IOException {
 		try {
 			_playerControl.saveMidiFile();
-		} catch (IOException | ParserException e) {
+		} catch (IOException e) {
 						e.printStackTrace();
 		}
 	}
@@ -96,6 +94,5 @@ public class ControlManager {
 	public void resume() {
 		_playerControl.resume();
 	}
-	
 	
 }
