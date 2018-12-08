@@ -37,4 +37,14 @@ public interface ControlInterface {
 	public void saveMidiFile() throws IOException;
 	public void saveMidiFile(String archivePathAndName) throws IOException;
 
+	public void execute();
+
+	public void stop();
+
+	public int getCurrentPos(int _posIndex);
+
+	public void pause();
+
+	public void resume();
+
 }
