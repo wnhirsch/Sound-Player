@@ -3,8 +3,8 @@ package controls;
 import java.io.IOException;
 import java.util.List;
 
-import org.jfugue.player.ManagedPlayer;
-import org.jfugue.player.Player;
+//import org.jfugue.player.ManagedPlayer;
+//import org.jfugue.player.Player;
 
 import commands.CommandInterface;
 import controls.ControlInterface.InstrumentType;
