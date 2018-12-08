@@ -3,13 +3,13 @@ package controls;
 import java.io.IOException;
 import java.util.List;
 
-import org.jfugue.player.ManagedPlayer;
-import org.jfugue.player.Player;
+//import org.jfugue.player.ManagedPlayer;
+import org.jfugue.*;
 
 import commands.CommandInterface;
 import file.MidiSaverJFugue;
 
-public class ControllerJFugue extends Controller{
+public class JFugue4Controller extends Controller{
 	public static final int defaultOctave = 5;
 	
 	private ControlManager _father;
@@ -33,9 +33,9 @@ public class ControllerJFugue extends Controller{
 	private Player _player;
 	// Volume, Instrument, Tempo
 	private String _str_configString = "X[Volume]=%d I%d T%d ";
-	private PlayerThreadJFugue playerThread;
+	private PlayerThreadJFugue4 playerThread;
 	private Thread _thread;
-	private ManagedPlayer managedPlayer;
+//	private ManagedPlayer managedPlayer;
 	
 	boolean fetched;
 
@@ -141,7 +141,7 @@ public class ControllerJFugue extends Controller{
 	}
 
 
-	public ControllerJFugue(ControlManager father, List<CommandInterface> buffer, List<Integer> notePos){
+	public JFugue4Controller(ControlManager father, List<CommandInterface> buffer, List<Integer> notePos){
 		_father = father;
 		_player = new Player();
 		_buffer_input = buffer;
@@ -156,8 +156,8 @@ public class ControllerJFugue extends Controller{
 		
 		fetched = _fetchMusicString();
 		
-		playerThread= new PlayerThreadJFugue(_player, _father);
-		managedPlayer = _player.getManagedPlayer();
+		playerThread= new PlayerThreadJFugue4(_player, _father);
+		//managedPlayer = _player.getManagedPlayer();
 	}
 	
 	private boolean _fetchMusicString() {
@@ -188,20 +188,20 @@ public class ControllerJFugue extends Controller{
 	}
 	
 	public void pause() {
-		managedPlayer.pause();
+		_player.pause();
 	}
 	
 	public void resume() {
-		managedPlayer.resume();
+		_player.resume();
 	}
 	
 	public void stop() {
-		managedPlayer.finish();
+		_player.stop();
 		//managedPlayer.reset();
 	}
 	
 	public boolean isPlaying() {
-		return managedPlayer.isPlaying();
+		return _player.isPlaying();
 	}
 	
 	public int getCurrentPos(int index) {
