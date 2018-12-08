@@ -41,12 +41,16 @@ public class ParserV2 extends Parser{
 		defaultDictionary.put('g', new RepeatNoteCommand());
 
 		defaultDictionary.put('O', new ChangeVolumeCommand(VolumeDef.PERCENT));
-		defaultDictionary.put('o', new ChangeVolumeCommand(VolumeDef.PERCENT));
+		defaultDictionary.put('o', new ChangeVolumeCommand(VolumeDef.PLUS));
 		defaultDictionary.put('I', new ChangeVolumeCommand(VolumeDef.PERCENT));
-		defaultDictionary.put('i', new ChangeVolumeCommand(VolumeDef.PERCENT));
+		defaultDictionary.put('i', new ChangeVolumeCommand(VolumeDef.MINUS));
 		defaultDictionary.put('U', new ChangeVolumeCommand(VolumeDef.PERCENT));
 		defaultDictionary.put('u', new ChangeVolumeCommand(VolumeDef.PERCENT));
 		defaultDictionary.put(' ', new ChangeVolumeCommand(VolumeDef.PLUS));
+		
+		defaultDictionary.put('+', new ChangeBPMCommand(50));
+		defaultDictionary.put('-', new ChangeBPMCommand(-50));
+
 
 		defaultDictionary.put('H', new RepeatNoteCommand());
 		defaultDictionary.put('J', new RepeatNoteCommand());
