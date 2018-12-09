@@ -141,7 +141,7 @@ public class JFugue5Controller extends Controller{
 	}
 
 
-	public JFugueController(ControlManager father, List<CommandInterface> buffer, List<Integer> notePos){
+	public JFugue5Controller(ControlManager father, List<CommandInterface> buffer, List<Integer> notePos){
 		_father = father;
 		_player = new Player();
 		_buffer_input = buffer;
