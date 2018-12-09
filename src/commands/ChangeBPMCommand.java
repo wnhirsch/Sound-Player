@@ -4,7 +4,7 @@ import controls.ControlInterface;
 
 public class ChangeBPMCommand implements CommandInterface {
 	private int incBpm;
-	private int maxBpm = 300;
+	private int maxBpm = 500;
 	public ChangeBPMCommand(int i) {
 		incBpm=i;
 	}
