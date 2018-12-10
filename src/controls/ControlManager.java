@@ -17,6 +17,9 @@ public class ControlManager {
 		V1, V2;
 	}
 	
+	private static final boolean _useJFugue4 = true;
+	private static final boolean _useJFugue5= (!_useJFugue4);
+	
 	Parser _parser;
 	ControlInterface _playerControl;
 	
@@ -39,8 +42,12 @@ public class ControlManager {
 		List<Integer> notePos = _parser.getNotePositions();
 		numNotes = notePos.size();
 		
-		_playerControl = new JFugue4Controller(this, _cmdList, notePos);
-	
+		
+		if(_useJFugue4) {
+			_playerControl = new JFugue4Controller(this, _cmdList, notePos);
+		}else {
+			_playerControl = new JFugue5Controller(this, _cmdList, notePos);
+		}
 	}
 	
 	public void execute() {
