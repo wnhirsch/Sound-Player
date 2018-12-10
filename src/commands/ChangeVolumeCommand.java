@@ -22,9 +22,9 @@ public class ChangeVolumeCommand implements CommandInterface {
 				newVolume = control.getDefaultVolume();
 		} else if (incVolume == VolumeDef.PERCENT) {
 			newVolume = (int) (control.getVolume() + newVolume * 0.1);
-			if(newVolume > maxVolume)
-				newVolume = maxVolume;
 		}
+		if(newVolume > maxVolume)
+			newVolume = maxVolume;
 		control.setVolume(newVolume);
 		control.setLastCmd(this);	
 	}
