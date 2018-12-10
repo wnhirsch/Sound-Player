@@ -3,7 +3,7 @@ package commands;
 import controls.ControlInterface;
 
 public class ChangeVolumeCommand implements CommandInterface {
-	private int maxVolume = 16383;
+	private int maxVolume = 16380;
 	private VolumeDef incVolume;
 
 	public ChangeVolumeCommand(VolumeDef inc){

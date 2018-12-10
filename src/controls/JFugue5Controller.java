@@ -33,7 +33,7 @@ public class JFugue5Controller extends Controller{
 	private Player _player;
 	// Volume, Instrument, Tempo
 	private String _str_configString = "X[Volume]=%d I%d T%d ";
-	private PlayerThreadJFugue playerThread;
+	private PlayerThreadJFugue5 playerThread;
 	private Thread _thread;
 	private ManagedPlayer managedPlayer;
 	
@@ -156,7 +156,7 @@ public class JFugue5Controller extends Controller{
 		
 		fetched = _fetchMusicString();
 		
-		playerThread= new PlayerThreadJFugue(_player, _father);
+		playerThread= new PlayerThreadJFugue5(_player, _father);
 		managedPlayer = _player.getManagedPlayer();
 	}
 	
