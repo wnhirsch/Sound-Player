@@ -1,6 +1,7 @@
 package controls;
 
 import java.io.IOException;
+import java.io.File;
 import java.util.List;
 
 //import org.jfugue.player.ManagedPlayer;
@@ -178,7 +179,8 @@ public class JFugue4Controller extends Controller{
 	}
 	
 	public void saveMidiFile(String archivePathAndName) throws IOException {
-		MidiSaverJFugue.saveMidiFile(this, archivePathAndName);
+	//	MidiSaverJFugue.saveMidiFile(this, archivePathAndName);
+		_player.saveMidi(new Pattern(musicString), new File(archivePathAndName));
 	}
 	
 	public void execute() {
